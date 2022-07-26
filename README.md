@@ -10,7 +10,9 @@ The repository is an official PyTorch implementation of following papers:
 ![image](assets/transfer_framework.png)
 
 ## Introduction
-MM-ALT is a multi-modal automatic lyric transcription framework accepting audio, video, and IMU modalities, which is proposed in our ACM-MM 2022 paper. The transfer learning techniques in MM-ALT are well-explored in our ISMIR 2022 paper. Through transfer learning, our audio-only ALT system can achieve state-of-the-art performance on multiple benchmark datasets, including DSing, DALI, Hansen, Jamado, and Mauch.
+MM-ALT is a multi-modal automatic lyric transcription framework accepting audio, video, and IMU modalities, which is proposed in our ACM-MM 2022 paper. 
+
+Our ISMIR 2022 paper proposed a transfer-learning based ALT solution by taking advantages of similarities between speech and singing. Through transfer the knowledge of wav2vec 2.0, which is pretrained and finetuned on speech domain, into singing domain, our ALT system can achieve state-of-the-art performance on multiple benchmark datasets, including DSing, DALI, Hansen, Jamado, and Mauch.
 
 If you find this repo useful in your research, please consider citing our papers:
 ```BibTex
