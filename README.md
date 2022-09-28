@@ -1,28 +1,46 @@
-# ALT_SpeechBrain
-The repository is an official PyTorch implementation of following papers: 
+# Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription
+This is the author's official PyTorch implementation for ALT_SpeechBrain. This repo contains code for experiments in the **ISMIR 2022** paper:
 
-[MM-ALT: A Multimodal Automatic Lyric Transcription System](https://arxiv.org/abs/2207.06127) (ACM-MM 2022)
-![image](assets/mmalt_framework.png)
+[Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription](https://guxm2021.github.io/guxm.github.io/pdf/ISMIR2022.pdf) (ISMIR 2022)
 
 
-[Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription](https://arxiv.org/abs/2207.09747) (ISMIR 2022)
+## Project Description
+Automatic speech recognition (ASR) has progressed significantly in recent years due to the emergence of large-scale datasets and the self-supervised learning (SSL) paradigm. However, as its counterpart problem in the singing domain, the development of automatic lyric tran- scription (ALT) suffers from limited data and degraded in- telligibility of sung lyrics. To fill in the performance gap between ALT and ASR, we attempt to exploit the similari- ties between speech and singing. In this work, we propose a transfer-learning-based ALT solution that takes advan- tage of these similarities by adapting wav2vec 2.0, an SSL ASR model, to the singing domain. We maximize the ef- fectiveness of transfer learning by exploring the influence of different transfer starting points. We further enhance the performance by extending the original CTC model to a hy- brid CTC/attention model. Our method surpasses previous approaches by a large margin on various ALT benchmark datasets. Further experiments show that, with even a tiny proportion of training data, our method still achieves com- petitive performance.
 
-![image](assets/transfer_framework.png)
+## Method Overview
+<p align="center">
+<img src="assets/transfer_framework.png" alt="" data-canonical-src="assets/transfer_framework.png" width="100%"/>
+</p>
 
-## Introduction
-MM-ALT is a multi-modal automatic lyric transcription framework accepting audio, video, and IMU modalities, which is proposed in our ACM-MM 2022 paper. 
+## Installation
+### Environement
+Install Anaconda and create the environment with python 3.8.12, pytorch 1.9.0 and cuda 11.1:
+```
+conda create -n alt python=3.8.12
+pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
+```
 
-Our ISMIR 2022 paper proposed a transfer-learning based ALT solution by taking advantages of similarities between speech and singing. Through transfer the knowledge of wav2vec 2.0, which is pretrained and finetuned on speech domain, into singing domain, our ALT system can achieve state-of-the-art performance on multiple benchmark datasets, including DSing, DALI, Hansen, Jamado, and Mauch.
+### SpeechBrain
 
-If you find this repo useful in your research, please consider citing our papers:
+We run experiments based on [SpeechBrain toolkit](https://github.com/speechbrain/speechbrain). For simiplicity, we remove the original recipes. To install SpeechBrain, run following commands:
+```
+cd MM_ALT
+pip install -r requirements.txt
+pip install --editable .
+```
+
+[Transformers](https://github.com/huggingface/transformers) and other packages are also required:
+```
+pip install transformers
+pip install datasets
+pip install sklearn
+```
+
+## Training and Evaluation
+The code will be released soon.
+
+## Citation
 ```BibTex
-@article{gu2022mm,
-  title={MM-ALT: A Multimodal Automatic Lyric Transcription System},
-  author={Gu, Xiangming and Ou, Longshen and Ong, Danielle and Wang, Ye},
-  journal={arXiv preprint arXiv:2207.06127},
-  year={2022}
-}
-
 @article{ou2022towards,
   title={Towards Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription},
   author={Ou, Longshen and Gu, Xiangming and Wang, Ye},
@@ -30,50 +48,15 @@ If you find this repo useful in your research, please consider citing our papers
   year={2022}
 }
 ```
+We borrow the code from [AV-Hubert](https://arxiv.org/pdf/2201.02184.pdf), please also consider citing their works.
 
-## Installation
-### Environement
-Install Anaconda and create the environment with python 3.8.12, pytorch 1.9.0 and cuda 11.1:
-```
-conda create -n mmalt python=3.8.12
-pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
-```
 
-### SpeechBrain
+## Also Check Our Relevant Work
+**MM-ALT: A Multimodal Automatic Lyric Transcription System**<br>
+Xiangming Gu*, Longshen Ou*, Danielle Ong, Ye Wang<br>
+*ACM International Conference on Multimedia (ACM MM), 2022, (Oral)*<br>
+[[paper](https://guxm2021.github.io/guxm.github.io/pdf/ACMMM2022.pdf)][[code](https://github.com/guxm2021/MM_ALT)]
 
-We run experiments based on [SpeechBrain toolkit](https://arxiv.org/pdf/2106.04624.pdf). For simiplicity, we remove the original recipes. To install SpeechBrain, run following commands:
-```
-cd ALT_SpeechBrain
-pip install -r requirements.txt
-pip install --editable .
-```
 
-[Transformers](https://arxiv.org/pdf/1910.03771.pdf) and other packages are also required:
-```
-pip install transformers
-pip install datasets
-pip install sklearn
-```
-
-### AV-Hubert
-We adapt [AV-Hubert (Audio-Visual Hidden Unit BERT)](https://arxiv.org/pdf/2201.02184.pdf) in our experiments. To enable the usage of AV-Hubert, run following commands:
-```
-cd ..
-git clone https://github.com/facebookresearch/av_hubert.git
-cd av_hubert
-git submodule init
-git submodule update
-```
-
-[Fairseq](https://arxiv.org/pdf/1904.01038.pdf) and other packages are also required:
-```
-pip install -r requirements.txt
-cd fairseq
-pip install --editable ./
-```
-
-## Training and Evaluation
-The code will be released soon.
-
-## Acknowledgement
-Part of the code is borrowed from [SpeechBrain](https://github.com/speechbrain/speechbrain) and [AV-Hubert](https://github.com/facebookresearch/av_hubert).
+## License
+ALT_SpeechBrain is released under the Apache License, version 2.0.
