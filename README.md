@@ -35,9 +35,55 @@ pip install transformers
 pip install datasets
 pip install sklearn
 ```
+## Datasets
+### DSing Dataset
+[DSing dataset](https://www.isca-speech.org/archive_v0/Interspeech_2019/pdfs/2378.pdf) is one of the most popular singing datasets. To download and prepare this dataset, we follow its github website https://github.com/groadabike/Kaldi-Dsing-task.
+
+The resulting folder should be organized as:
+```
+/path/to/DSing
+├── dev
+├── test
+├── train1
+├── train3
+├── train30
+```
+
+### DALI Dataset
+[DALI dataset](https://arxiv.org/pdf/1906.10606.pdf) is the largest singing dataset for automatic lyric transcription. We follow the github website https://github.com/gabolsgabs/DALI to download the data and annotations. We use [Demucs v3](https://github.com/facebookresearch/demucs) (mdx_extra model) to perform source separation before training and evaluation on DALI dataset. We organize the data into the following structure:
+```
+/path/to/DALI
+├── data
+    ├── utterance1.wav
+    ├── utterance2.wav
+    ├── ...
+├── meta_data.json
+```
+The json file contains the `path`, `duration`, `lyrics`, and `split` for each utterance.
+
+### Hansen / Jamendo / Mauch
+[Hansen](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwimq4jirbr6AhUzVXwKHXldDdEQFnoECA4QAQ&url=https%3A%2F%2Fzenodo.org%2Frecord%2F850136%2Ffiles%2Fsmc_2012_054.pdf&usg=AOvVaw2UoRA8cnY4Lpdrmzn8qv2r), [Jamendo](https://arxiv.org/pdf/1902.06797.pdf), [Mauch](https://ieeexplore.ieee.org/document/5876304) are three small datasets, which are used for evaluating the ALT system. We organize the data into the following structure:
+```
+/path/to/data
+├── data
+    ├── utterance1.wav
+    ├── utterance2.wav
+    ├── ...
+├── meta_data.json
+```
+`/path/to/data` is the folder of Hansen or Jamendo or Mauch. The json file contains the `path`, `duration`, `lyrics`, and `split` for each utterance.
+
+NOTE: Please make sure the audio input to model is 16 kHz and has mono-channel.
 
 ## Training and Evaluation
-The code will be released soon.
+We follow the internal logic of SpeechBrain, you can run experiments in this way:
+```
+cd <dataset>/<task>
+python experiment.py params.yaml
+```
+You may need to create csv files according to our guidance in `<dataset>/<task>`. The results will be saved in the `output_folder` specified in the yaml file. Both detailed logs and experiment outputs are saved there. Furthermore, less verbose logs are output to stdout.
+
+NOTE: The evaluation of Hansen / Jamendo / Mauch datasets are included in the folder `DALI/ALT`.
 
 ## Citation
 ```BibTex
