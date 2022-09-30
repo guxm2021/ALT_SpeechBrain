@@ -94,7 +94,7 @@ NOTE: The evaluation of Hansen / Jamendo / Mauch datasets are included in the fo
   year={2022}
 }
 ```
-We borrow the code from [AV-Hubert](https://arxiv.org/pdf/2201.02184.pdf), please also consider citing their works.
+We borrow the code from [SpeechBrain](https://arxiv.org/pdf/2106.04624.pdf), please also consider citing their works.
 
 
 ## Also Check Our Relevant Work

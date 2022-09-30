@@ -1,0 +1,88 @@
+# Seed needs to be set at top of yaml, before objects with parameters are made
+seed: 2223
+__set_seed: !apply:torch.manual_seed [!ref <seed>]
+lr: 0.001
+output_folder: !ref results/RNNLM/<seed>
+save_folder: !ref <output_folder>/save
+train_log: !ref <output_folder>/train_log.txt
+
+# Training parameters
+number_of_epochs: 13
+batch_size: 20
+accu_steps: 1 # Gradient accumulation to simulate large batch training
+ckpt_interval_minutes: 15 # save checkpoint every N min
+
+lm_train_data: data/dsing/train30.txt
+lm_valid_data: data/dsing/dev.txt
+lm_test_data: data/dsing/test.txt
+label_encoder: ../label_encoder.txt
+
+# Dataloader options
+train_dataloader_opts:
+    batch_size: !ref <batch_size>
+    shuffle: True
+
+valid_dataloader_opts:
+    batch_size: 1
+
+test_dataloader_opts:
+    batch_size: 1
+
+# Model parameters
+emb_size: 128
+activation: !name:torch.nn.LeakyReLU
+dropout: 0.2  # 0.0
+rnn_layers: 3  # 2
+rnn_neurons: 2048
+dnn_blocks: 2  # 1
+dnn_neurons: 1024 # 512
+
+# Outputs
+output_neurons: 31 # index(blank/eos/bos) = 0
+blank_index: 0
+bos_index: 1
+eos_index: 2
+
+
+# Functions
+model: !new:speechbrain.lobes.models.RNNLM.RNNLM
+    output_neurons: !ref <output_neurons>
+    embedding_dim: !ref <emb_size>
+    activation: !ref <activation>
+    dropout: !ref <dropout>
+    rnn_layers: !ref <rnn_layers>
+    rnn_neurons: !ref <rnn_neurons>
+    dnn_blocks: !ref <dnn_blocks>
+    dnn_neurons: !ref <dnn_neurons>
+
+modules:
+    model: !ref <model>
+
+checkpointer: !new:speechbrain.utils.checkpoints.Checkpointer
+    checkpoints_dir: !ref <save_folder>
+    recoverables:
+        model: !ref <model>
+        scheduler: !ref <lr_annealing>
+        counter: !ref <epoch_counter>
+
+log_softmax: !new:speechbrain.nnet.activations.Softmax
+    apply_log: True
+
+optimizer: !name:torch.optim.Adam
+    lr: !ref <lr>
+    betas: (0.9, 0.98)
+    eps: 0.000000001
+
+lr_annealing: !new:speechbrain.nnet.schedulers.NewBobScheduler
+    initial_value: !ref <lr>
+    improvement_threshold: 0.0025
+    annealing_factor: 0.8
+    patient: 0
+
+epoch_counter: !new:speechbrain.utils.epoch_loop.EpochCounter
+    limit: !ref <number_of_epochs>
+
+compute_cost: !name:speechbrain.nnet.losses.nll_loss
+
+train_logger: !new:speechbrain.utils.train_logger.FileTrainLogger
+    save_file: !ref <train_log>
