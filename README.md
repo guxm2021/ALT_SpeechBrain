@@ -24,7 +24,7 @@ pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f ht
 
 We run experiments based on [SpeechBrain toolkit](https://github.com/speechbrain/speechbrain). For simiplicity, we remove the original recipes. To install SpeechBrain, run following commands:
 ```
-cd MM_ALT
+cd ALT_SpeechBrain
 pip install -r requirements.txt
 pip install --editable .
 ```
