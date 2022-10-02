@@ -3,7 +3,7 @@ This sub-project contains recipes for training RNN langugae model for the DALI D
 
 ## How to run
 
-1. Prepare Text corpora. We mix lyrics from the training set of DSing and the training set of DALI to train our RNN language model. For your convenience, we have organized the text into `data/train.txt`. The valid set of DALI has been saved to `data/valid.txt`
+1. Prepare text corpus. We mix lyrics from the training set of DSing and the training set of DALI to train our RNN language model. For your convenience, we have organized the text into `data/train.txt`. The valid set of DALI has been saved to `data/valid.txt`
 
 2. Train the RNNLM for DALI dataset, run:
 ```
