@@ -19,7 +19,7 @@ The option `--save_model` is used to separately save the model to the folder `DS
 
 3. Train the ALT system for DSing dataset, wav2vec 2.0 has been pretrained on ASR data without finetuned on ASR data, run:
 ```
-CUDA_VISIBLE_DEVICES=0,1,2,3 python train_wav2vec2.py hparams/train_wav2vec2_pretrain.yaml --data_parallel_backend --data_folder /path/to/dsing --pretrained_lm_path /path/to/RNNLM --save_model True --duration_threshold 28
+CUDA_VISIBLE_DEVICES=0,1,2,3 python train_wav2vec2.py hparams/train_wav2vec2_pretrain.yaml --data_parallel_backend --data_folder /path/to/dsing --pretrained_lm_path /path/to/RNNLM --duration_threshold 28
 ```
 
 We use four A5000 GPUs (each has 23 GB) to run experiments. To facilitate the training, we eliminate the utterances longer than 28s in the training set. You may want to change the `duration_threshold` based on your GPUs.
