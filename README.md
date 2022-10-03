@@ -50,9 +50,15 @@ The resulting folder should be organized as:
 ```
 
 ### DALI Dataset
-[DALI dataset](https://arxiv.org/pdf/1906.10606.pdf) is the largest singing dataset for automatic lyric transcription. We follow the github website https://github.com/gabolsgabs/DALI to download the data and annotations. We use [Demucs v3](https://github.com/facebookresearch/demucs) (mdx_extra model) to perform source separation before training and evaluation on DALI dataset. We organize the data into the following structure:
+[DALI dataset](https://arxiv.org/pdf/1906.10606.pdf) is the largest singing dataset for automatic lyric transcription. We follow the github website https://github.com/gabolsgabs/DALI to download the data and annotations. We use [Demucs v3](https://github.com/facebookresearch/demucs) (mdx_extra model) to perform source separation before training and evaluation on DALI dataset. We organize the data into the following structure. `/path/to/DALI_v2` is the folder for train split and valid split of DALI dataset while `path/to/DALI_Test` is the folder for test split of DALI dataset. 
 ```
-/path/to/DALI
+/path/to/DALI_v2
+├── data
+    ├── utterance1.wav
+    ├── utterance2.wav
+    ├── ...
+├── meta_data.json
+/path/to/DALI_Test
 ├── data
     ├── utterance1.wav
     ├── utterance2.wav

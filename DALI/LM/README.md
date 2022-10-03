@@ -1,17 +1,17 @@
 # Language Model with DALI
-This sub-project contains recipes for training RNN langugae model for the DALI Dataset. We assume you have downloaded and pre-processed DSing dataset. The DSing dataset is saved at `/path/to/DALI`.
+This sub-project contains recipes for training RNN langugae model for the DALI Dataset. We assume you have downloaded and pre-processed DALI dataset and DSing dataset. The DALI dataset is saved at `/path/to/DALI_v2` and `/path/to/DALI_Test` while the DSing dataset is saved at `/path/to/DSing`
 
 ## Prerequisties
 We train RNNLM on DSing and DALI training splits and evaluate the model on DALI valid split. Please follow the step 1-3 to prepare the data.
 
 1. Prepare text corpus for DALI, run:
 ```
-python dali_prepare.py --data_folder /path/to/dali
+python dali_prepare.py --data_folder /path/to/DALI_v2
 ```
 
 2. Prepare text corpus for DSing, run:
 ```
-python dsing_prepare.py --data_folder /path/to/dsing
+python dsing_prepare.py --data_folder /path/to/DSing
 ```
 
 3. Combine text corpus from two datasets into train split, run:
