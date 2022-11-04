@@ -1,7 +1,7 @@
 # Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription
 This is the author's official PyTorch implementation for ALT_SpeechBrain. This repo contains code for experiments in the **ISMIR 2022** paper:
 
-[Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription](https://guxm2021.github.io/guxm.github.io/pdf/ISMIR2022.pdf)
+[Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription](https://guxm2021.github.io/pdf/ISMIR2022.pdf)
 
 
 ## Project Description
@@ -107,7 +107,7 @@ We borrow the code from [SpeechBrain](https://arxiv.org/pdf/2106.04624.pdf), ple
 **MM-ALT: A Multimodal Automatic Lyric Transcription System**<br>
 Xiangming Gu*, Longshen Ou*, Danielle Ong, Ye Wang<br>
 *ACM International Conference on Multimedia (ACM MM), 2022, (Oral)*<br>
-[[paper](https://guxm2021.github.io/guxm.github.io/pdf/ACMMM2022.pdf)][[code](https://github.com/guxm2021/MM_ALT)]
+[[paper](https://guxm2021.github.io/pdf/ACMMM2022.pdf)][[code](https://github.com/guxm2021/MM_ALT)]
 
 
 ## License
