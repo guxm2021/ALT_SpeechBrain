@@ -93,8 +93,8 @@ NOTE: The evaluation of Hansen / Jamendo / Mauch datasets are included in the fo
 
 ## Citation
 ```BibTex
-@article{ou2022towards,
-  title={Towards Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription},
+@article{ou2022transfer,
+  title={Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription},
   author={Ou, Longshen and Gu, Xiangming and Wang, Ye},
   journal={arXiv preprint arXiv:2207.09747},
   year={2022}
