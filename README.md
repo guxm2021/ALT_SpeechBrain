@@ -107,8 +107,12 @@ We borrow the code from [SpeechBrain](https://arxiv.org/pdf/2106.04624.pdf), ple
 **MM-ALT: A Multimodal Automatic Lyric Transcription System**<br>
 Xiangming Gu*, Longshen Ou*, Danielle Ong, Ye Wang<br>
 *ACM International Conference on Multimedia (ACM MM), 2022, (Oral)*<br>
-[[paper](https://guxm2021.github.io/pdf/ACMMM2022.pdf)][[code](https://github.com/guxm2021/MM_ALT)]
+[[paper](https://dl.acm.org/doi/10.1145/3503161.3548411)][[code](https://github.com/guxm2021/MM_ALT)]
 
+**Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing**<br>
+Xiangming Gu, Longshen Ou, Wei Zeng, Jianan Zhang, Nicholas Wong, Ye Wang<br>
+*ACM Transactions on Multimedia Computing, Communications and Applications (TOMM), 2024*<br>
+[[paper](https://dl.acm.org/doi/10.1145/3651310)][[code](https://github.com/guxm2021/SVT_SpeechBrain)]
 
 ## License
 ALT_SpeechBrain is released under the Apache License, version 2.0.
