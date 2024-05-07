@@ -1,0 +1,19 @@
+{
+    "sig": null,
+    "name": "mdx_extra",
+    "repo": null,
+    "verbose": false,
+    "out": "separated",
+    "device": "cpu",
+    "shifts": 1,
+    "overlap": 0.25,
+    "split": true,
+    "segment": null,
+    "stem": "vocals",
+    "int24": false,
+    "float32": false,
+    "clip_mode": "rescale",
+    "mp3": false,
+    "mp3_bitrate": 320,
+    "jobs": 4
+}
